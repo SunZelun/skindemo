@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skin Analyzer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        body {
+            background-color: #e9e6df;
+        }
+
+        .golden-text {
+            color: #5c4025;
+        }
+
+        .circle-image {
+            background-image: url("assets/images/heatmap.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
+        <a class="navbar-brand" href="p3.html"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+    </nav>
+    <div id="app" class="container" style="padding-top: 2vh;">
+        <div class="col-12">
+            <div class="col-12 text-center">
+                <h3>您的分析结果</h3>
+            </div>
+            <br>
+
+            <div class="col-12">
+                    <div class="col-12 bg-image">
+                        <div class="circle-image mx-auto"></div>
+                    </div>
+    
+                    <br>
+    
+                    <div class="col-12">
+                        <div class="col-12 text-center mb-2">
+                            <span><a href="detail.html?method=2" style="color:black;"><small>点击具体区域可查看详细护肤方案</small></a></span>
+                        </div>
+                        <br>
+                        <div class="col-12 text-center mb-2">
+                            <h5>>> 最佳部位：额头 <<</h5>
+                        </div>
+                        <br>
+                        <div class="col-12 text-center">
+                            <span>打败全国<b style="color: #DAC993; font-size: 24px;">90%</b>同龄人*</span>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-12 mt-5">
+                <canvas id="canvas" style="height: 300px; width: 100%;"></canvas>
+
+                <div class="row mt-2 mb-2">
+                    <p><small><em>*指Olay肌肤数据库中的同龄人</em></small></p>
+                </div>
+
+                <div class="col-12 text-center mb-3">
+                    <a href="p3.html" class="btn btn-outline-dark col-12">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script>
+        /*function generateResult(type) {
+            var max = 100;
+            var min = 1;
+
+            switch (type) {
+                case "good":
+                    max = 95;
+                    min = 80;
+                    break;
+                case "normal":
+                    max = 79;
+                    min = 50;
+                    break;
+                case "bad":
+                    max = 49;
+                    min = 30;
+                    break;
+                default:
+                    max = 75;
+                    min = 65;
+            }
+
+            var result = Math.floor(Math.random() * (max - min + 1)) + min;
+            return result;
+        }*/
+
+        var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
+        var yandai = consumerData.scores.yandai;
+        var zuijiao = consumerData.scores.zuijiao;
+        var lianjia = consumerData.scores.lianjia;
+        var yanjiao = consumerData.scores.yanjiao;
+        var etou = consumerData.scores.etou;
+
+        var config = {
+            type: 'radar',
+            data: {
+                labels: ['眼袋\n' + yandai + "%", '嘴角\n' + zuijiao + "%", '脸颊\n' + lianjia + "%", '眼角\n' + yanjiao + "%", '额头\n' + etou + "%"],
+                datasets: [{
+                    backgroundColor: "#ffffff00",
+                    borderColor: "#000000",
+                    pointBackgroundColor: "#000000",
+                    pointBorderWidth: 5,
+                    pointBorderColor: "#000000",
+                    data: [
+                        yandai,
+                        zuijiao,
+                        lianjia,
+                        yanjiao,
+                        etou
+                    ]
+                }],
+            },
+            options: {
+                legend: {
+                    position: 'top',
+                    display: false
+                },
+                scale: {
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                        min: 0,
+                        max: 100,
+                    },
+                    pointLabels: {
+                        fontColor: "#000000",
+                        fontSize: 14
+                    }
+                }
+            },
+            plugins: [{
+                beforeInit: function (chart) {
+                    chart.data.labels.forEach(function (e, i, a) {
+                        if (/\n/.test(e)) {
+                            a[i] = e.split(/\n/)
+                        }
+                    })
+                }
+            }]
+        };
+
+        $(document).ready(function () {
+            window.myRadar = new Chart(document.getElementById('canvas'), config);
+
+            $('#canvas').click(function(){
+                location.href = "detail.html?method=2";
+            });
+        });
+    </script>
+</body>
+
+</html>

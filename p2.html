@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skin Analyzer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9e6df;
+        }
+
+        .golden-text {
+            color: #5c4025;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
+        <a class="navbar-brand" href="index.html"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+    </nav>
+
+    <div id="app" class="container" style="padding-top: 10vh;">
+        <div class="col-12 text-center">
+            <img src="assets/images/olay.png" alt="" style="width: 200px;">
+        </div>
+        <div class="col-12 text-center">
+            <h5 class="golden-text">请选择分析模式</h5>
+        </div>
+        <br>
+        <div class="col-12">
+            <a href="animation.html" style="text-decoration: none;">
+                <div class="card text-white bg-transparent">
+                    <div class="row no-gutters p-2">
+                        <div class="col-auto">
+                            <div class="row align-items-center p-3" style="height: 100%;">
+                                <img src="assets/images/datastream.jpg" style="max-width: 100px;">
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <h5 class="card-title center golden-text">使用宝洁数据库分析</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <br>
+            <a href="animation.html?content=2" style="text-decoration: none;">
+                <div class="card bg-transparent">
+                    <div class="row no-gutters p-2">
+                        <div class="col-auto">
+                            <div class="row align-items-center p-3" style="height: 100%;">
+                                <img src="assets/images/healthapp.png" style="max-width: 100px;">
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="card-block center">
+                                <h5 class="card-title golden-text">结合自身状况分析</h5>
+                                <p class="card-text golden-text">例如睡眠，饮食等</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

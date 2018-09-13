@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skin Analyzer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #e9e6df;
+        }
+
+        .circle-image {
+            background-image: url("assets/images/demo.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .golden-text {
+            color: #5c4025;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
+        <a class="navbar-brand" href="#" id="back-btn"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+    </nav>
+
+    <div id="app" class="container" style="padding-top: 10vh;">
+        <div class="col-12 text-center">
+            <img src="assets/images/olay.png" alt="" style="width: 200px;">
+        </div>
+
+        <br>
+
+        <div id="content-div">
+
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var method = url.searchParams.get("method");
+
+        var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
+        for (var j = 0; j < consumerData.details.length; j++) {
+            addContent(consumerData.details[j])
+        }
+
+        function addContent(content) {
+            var dom = "<div class='col-12 text-center mb-5'><label>" + content.title + "</label><br><p class='text-left golden-text'>" + content.statement + "</p></div>";
+            $('#content-div').append(dom);
+        }
+
+        $('#back-btn').click(function(){
+            if (method == "3") {
+                location.href = "p4-3.html";
+            } else if (method == "2") {
+                location.href = "p4-2.html";
+            } else {
+                location.href = "p4-1.html";
+            }
+        });
+    </script>
+</body>
+
+</html>
