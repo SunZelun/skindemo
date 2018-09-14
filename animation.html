@@ -167,7 +167,7 @@
 
 <body>
     <div class="center" style="display:flex; align-items:center; justify-content:center;">
-        <img src="assets/images/demo.jpg" style="max-width: 90%; opacity: 0.4;" />
+        <img id="selfie" src="" style="max-width: 90%; opacity: 0.4;" />
     </div>
 
     <div class="overlay">
@@ -194,6 +194,9 @@
 </body>
 <script src="assets/js/jquery.min.js"></script>
 <script>
+    var name = localStorage.getItem('consumer_name');
+    document.getElementById("selfie").src = "assets/images/selfies/" + name + ".jpg";
+
     var url_string = window.location.href
     var url = new URL(url_string);
     var c = url.searchParams.get("content");
