@@ -42,7 +42,7 @@ var data = [
         "scores": {
             "yandai": 30,
             "yanjiao": 72,
-            "etou": 0,
+            "etou": 60,
             "zuijiao": 52,
             "lianjia": 33
         },
@@ -80,7 +80,7 @@ var data = [
         "scores": {
             "yandai": 56,
             "yanjiao": 73,
-            "etou": 0,
+            "etou": 50,
             "zuijiao": 25,
             "lianjia": 55
         },
@@ -118,7 +118,7 @@ var data = [
         "scores": {
             "yandai": 50,
             "yanjiao": 57,
-            "etou": 0,
+            "etou": 60,
             "zuijiao": 54,
             "lianjia": 61
         },
@@ -156,7 +156,7 @@ var data = [
         "scores": {
             "yandai": 72,
             "yanjiao": 85,
-            "etou": 0,
+            "etou": 50,
             "zuijiao": 55,
             "lianjia": 71
         },
@@ -194,7 +194,7 @@ var data = [
         "scores": {
             "yandai": 49,
             "yanjiao": 68,
-            "etou": 0,
+            "etou": 60,
             "zuijiao": 33,
             "lianjia": 53
         },

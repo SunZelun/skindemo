@@ -197,17 +197,6 @@
     var name = localStorage.getItem('consumer_name');
     document.getElementById("selfie").src = "assets/images/selfies/" + name + ".jpg";
 
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var c = url.searchParams.get("content");
-
-    if (c == "2") {
-        var content = "全面深度的智能场景<br>通过对健康状态的全面监测与皮肤检测结果为你推荐个性化精准皮肤管理产品";
-        var claim = "*数据来自宝洁与著名生命基因组学专家团"
-        $('#content').html(content);
-        $('#claim').html(claim);
-    }
-
     $(document).ready(function () {
         var counter = 0;
         var c = 0;
@@ -227,6 +216,13 @@
                 $('#note').text("正在分析..")
             }
 
+            if (c == 50) {
+                var content = "全面深度的智能场景<br>通过对健康状态的全面监测与皮肤检测结果为你推荐个性化精准皮肤管理产品";
+                var claim = "*数据来自宝洁与著名生命基因组学专家团"
+                $('#content').html(content);
+                $('#claim').html(claim);
+            }
+
             if (c == 60) {
                 $('#note').text("正在分析...")
             }
@@ -244,7 +240,7 @@
                 clearInterval(i);
                 location.replace('p3.html');
             }
-        }, 50);
+        }, 100);
     });
 </script>
 
