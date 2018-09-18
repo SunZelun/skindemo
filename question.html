@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skin Analyzer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        body {
+            background-color: #f9f7f1;
+        }
+
+        .golden-text {
+            color: #5c4025;
+        }
+
+        .hightlight {
+            border-bottom: 2px solid #5c4025;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
+        <a class="navbar-brand" href="p3.html"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+    </nav>
+    <div id="app" class="container" style="padding-top: 10vh;">
+        <div class="col-12 text-center">
+            <h4>请问你在使用的护肤产品有</h4>
+            <small>(可多选)</small>
+        </div>
+
+        <div class="row mt-3 p-3">
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/ximiannai.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/shuangfushui.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/jidiye.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images//jinghua.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/mianbujingcuiyou.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/yanshuangjinghua.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/mianshuang.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/mianmo.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/fangshaishuang.png" alt="">
+            </div>
+            <div class="col-6 p-2">
+                <img class="option" src="assets/images/yejianhufupin.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 text-center mb-3">
+        <a href="p4-3.html" class="btn btn-outline-dark col-12">下一步</a>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        $('.option').click(function () {
+            $(this).toggleClass('hightlight');
+        });
+    </script>
+</body>
+
+</html>

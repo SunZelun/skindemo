@@ -173,8 +173,8 @@
                         <span><a href="detail.html?method=1" style="color:black;"><small>点击具体区域可查看详细护肤方案</small></a></span>
                     </div>
                     <br>
-                    <div class="col-12 text-center mb-2">
-                        <h5>>> 最佳部位：额头 <<</h5>
+                    <div class="col-12 text-center mb-2 p-0">
+                        <h5><span id="best-zone-score"></span>>> 最佳部位：额头 <<</h5>
                     </div>
                     <br>
                     <div class="col-12 text-center">
@@ -285,31 +285,6 @@
                         </div>
                     </div>
 
-                    <br>
-
-                    <div class="row">
-                        <div class="offset-3 col-6 text-center">
-                            <a href="detail.html?method=1">
-                                <div id="chart5" class="donut-size">
-                                    <div class="pie-wrapper">
-                                        <span class="label">
-                                            <span class="num">0</span><span>%</span>
-                                        </span>
-                                        <div class="pie">
-                                            <div class="left-side half-circle"></div>
-                                            <div class="right-side half-circle"></div>
-                                        </div>
-                                        <div class="shadow"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <br>
-                            <div class="col-12">
-                                <a href="detail.html?method=1"><label class="center" id="chart5-label">眼袋</label></a>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <p><small><em>*指Olay肌肤数据库中的同龄人</em></small></p>
                     </div>
@@ -350,23 +325,27 @@
 
             $(document).ready(function () {
                 var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
-
-                updateDonutChart('#chart1', consumerData.scores.yandai);
-                $('#chart1-label').text("眼袋");
-
-                updateDonutChart('#chart2', consumerData.scores.yanjiao);
-                $('#chart2-label').text("眼角");
-
-                updateDonutChart('#chart3', consumerData.scores.etou);
-                $('#chart3-label').text("额头");
-
-                updateDonutChart('#chart4', consumerData.scores.zuijiao);
-                $('#chart4-label').text("嘴角");
-
-                updateDonutChart('#chart5', consumerData.scores.lianjia);
-                $('#chart5-label').text("脸颊");
-
+                var labels = {
+                    yandai: "眼袋",
+                    yanjiao: "眼角",
+                    etou: "额头",
+                    zuijiao: "嘴角",
+                    lianjia: "脸颊"
+                }
+                
                 $('#age-label').text(consumerData.skinAge + "岁");
+                $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
+
+                var counter = 1;
+                delete consumerData.scores[consumerData.best];
+
+                for(score in consumerData.scores){
+                    if(consumerData.scores.hasOwnProperty(score)){
+                        updateDonutChart('#chart' + counter, consumerData.scores[score]);
+                        $('#chart' + counter + '-label').text(labels[score]);
+                        counter++;
+                    }
+                }
             });
         </script>
 </body>
