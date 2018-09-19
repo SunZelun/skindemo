@@ -148,7 +148,7 @@
             var yanjiao = consumerData.ages.yanjiao;
             var etou = consumerData.ages.etou;
 
-            $('.circle-image').css('background-image', 'url(assets/images/selfies/' + consumerData.consumerName + '.jpg)');
+            $('.circle-image').css('background-image', 'url(assets/images/selfies/age/' + consumerData.consumerName + '.png)');
             $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
             $('#skin-age').text(consumerData.skinAge);
 
@@ -163,7 +163,7 @@
                 to: { color: '#DAC993' },
                 step: (state, bar) => {
                     bar.path.setAttribute('stroke', state.color);
-                    bar.setText(Math.round(bar.value() * 30) + ' 岁');
+                    bar.setText(Math.round(bar.value() * 40) + ' 岁');
                 },
                 text: {
                     style: {
@@ -189,7 +189,7 @@
                 to: { color: '#DAC993' },
                 step: (state, bar) => {
                     bar.path.setAttribute('stroke', state.color);
-                    bar.setText(Math.round(bar.value() * 30) + ' 岁');
+                    bar.setText(Math.round(bar.value() * 40) + ' 岁');
                 },
                 text: {
                     style: {
@@ -215,7 +215,7 @@
                 to: { color: '#DAC993' },
                 step: (state, bar) => {
                     bar.path.setAttribute('stroke', state.color);
-                    bar.setText(Math.round(bar.value() * 30) + ' 岁');
+                    bar.setText(Math.round(bar.value() * 40) + ' 岁');
                 },
                 text: {
                     style: {
@@ -241,7 +241,7 @@
                 to: { color: '#DAC993' },
                 step: (state, bar) => {
                     bar.path.setAttribute('stroke', state.color);
-                    bar.setText(Math.round(bar.value() * 30) + ' 岁');
+                    bar.setText(Math.round(bar.value() * 40) + ' 岁');
                 },
                 text: {
                     style: {
@@ -267,7 +267,7 @@
                 to: { color: '#DAC993' },
                 step: (state, bar) => {
                     bar.path.setAttribute('stroke', state.color);
-                    bar.setText(Math.round(bar.value() * 30) + ' 岁');
+                    bar.setText(Math.round(bar.value() * 40) + ' 岁');
                 },
                 text: {
                     style: {
@@ -283,11 +283,11 @@
             });
 
             $(document).ready(function () {
-                yandaibar.animate(yandai / 30);
-                yanjiaobar.animate(yanjiao / 30);
-                etoubar.animate(etou / 30);
-                zuijiaobar.animate(zuijiao / 30);
-                lianjiabar.animate(lianjia / 30);
+                yandaibar.animate(yandai / 40);
+                yanjiaobar.animate(yanjiao / 40);
+                etoubar.animate(etou / 40);
+                zuijiaobar.animate(zuijiao / 40);
+                lianjiabar.animate(lianjia / 40);
 
                 $('.result').click(function () {
                     location.href = "detail.html?method=3";

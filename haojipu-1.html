@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skin Analyzer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #e9e6df;
+        }
+
+        .circle-image {
+            background-image: url("assets/images/demo.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .golden-text {
+            color: #5c4025;
+        }
+
+        .top1 {
+            position: absolute;
+            width: 50px;
+            top: -35%;
+            right: 0;
+            display: none;
+        }
+
+        .left-img {
+            width: 70px;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
+        <a class="navbar-brand" href="haojipu.html"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+    </nav>
+
+    <div id="app" class="container" style="padding-top: 10vh;">
+        <div class="col-12 text-center">
+            <p>吃得健康，取决食材</p>
+            <p>肌肤健康，取决产品的“食材”</p>
+            <h6 class="golden-text"><span style="font-size: 30px;">OLAY </span> 为您推荐 无惧年龄好《肌谱》</h6>
+        </div>
+
+        <br>
+
+        <div id="content-div mt-3">
+            <div class="row no-gutters">
+                <div class="col-auto p-2">
+                    <img src="assets/images/yanbu-lianjia-zuichun.png" class="left-img">
+                    <img src="assets/images/top1.png" alt="" class="top1">
+                </div>
+                <div class="col">
+                    <h5 class="card-title center">《额头·脸颊》美白</h5>
+                </div>
+            </div>
+
+            <div class="col-12 text-center p-0">
+                <img src="assets/images/sim1.png" alt="" style="width: 90vw;">
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+
+    <script>
+        var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
+    </script>
+</body>
+
+</html>

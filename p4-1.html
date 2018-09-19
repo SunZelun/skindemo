@@ -174,11 +174,11 @@
                     </div>
                     <br>
                     <div class="col-12 text-center mb-2 p-0">
-                        <h5><span id="best-zone-score"></span>>> 最佳部位：额头 <<</h5>
+                        <h5><span id="best-zone-score"></span>>> 最佳部位：<span id="best-zone"></span> <<</h5>
                     </div>
                     <br>
                     <div class="col-12 text-center">
-                        <span>打败全国<b style="color: #DAC993; font-size: 24px;">90%</b>同龄人*</span>
+                        <span>打败全国<b style="color: #DAC993; font-size: 24px;" id="rank-number"></b>同龄人*</span>
                     </div>
                 </div>
             </div>
@@ -290,7 +290,7 @@
                     </div>
 
                     <div class="col-12 text-center mb-3">
-                        <a href="p3.html" class="btn btn-outline-dark col-12">返回</a>
+                        <a href="simulation.html" class="btn btn-outline-dark col-12">体验肌肤模拟</a>
                     </div>
 
                 </div>
@@ -335,6 +335,8 @@
                 
                 $('#age-label').text(consumerData.skinAge + "岁");
                 $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
+                $('#best-zone').text(labels[consumerData.best]);
+                $('#rank-number').text(consumerData.rank + "%");
 
                 var counter = 1;
                 delete consumerData.scores[consumerData.best];

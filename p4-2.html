@@ -96,12 +96,14 @@
                     </div>
                     <br>
                     <div class="col-12 text-center mb-2 p-0">
-                        <h5><span id="best-zone-score"></span>>> 最佳部位：额头 <<</h5> </div> <br>
-                                <div class="col-12 text-center">
-                                    <span>打败全国<b style="color: #DAC993; font-size: 30px;">90%</b>同龄人*</span>
-                                </div>
+                        <h5><span id="best-zone-score"></span>>> 最佳部位：<span id="best-zone"></span> <<</h5>
+                    </div>
+                    <br>
+                    <div class="col-12 text-center">
+                        <span>打败全国<b style="color: #DAC993; font-size: 30px;" id="rank-number"></b>同龄人*</span>
                     </div>
                 </div>
+            </div>
 
                 <div class="col-12 mt-5">
                     <canvas id="canvas" style="height: 300px; width: 100%;"></canvas>
@@ -200,6 +202,14 @@
                 }*/
 
                 var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
+                var labels = {
+                    yandai: "眼袋",
+                    yanjiao: "眼角",
+                    etou: "额头",
+                    zuijiao: "嘴角",
+                    lianjia: "脸颊"
+                }
+                
                 var yandai = consumerData.scores.yandai;
                 var zuijiao = consumerData.scores.zuijiao;
                 var lianjia = consumerData.scores.lianjia;
@@ -207,8 +217,10 @@
                 var etou = consumerData.scores.etou;
 
                 $('#age-label').text(consumerData.skinAge + "岁");
-                $('.circle-image').css('background-image', 'url(assets/images/selfies/' + consumerData.consumerName + '.jpg)');
+                $('.circle-image').css('background-image', 'url(assets/images/selfies/heatmap/' + consumerData.consumerName + '.png)');
                 $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
+                $('#best-zone').text(labels[consumerData.best]);
+                $('#rank-number').text(consumerData.rank + "%");
 
                 var config = {
                     type: 'radar',

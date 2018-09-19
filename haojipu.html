@@ -26,6 +26,20 @@
         .golden-text {
             color: #5c4025;
         }
+
+        .top1 {
+            position: absolute;
+            width: 70px;
+            top: -10%;
+            right: 0;
+            display: none;
+        }
+
+        .left-img {
+            width: 100px;
+            top: 20%;
+            position: relative;
+        }
     </style>
 </head>
 
@@ -44,11 +58,89 @@
         <br>
 
         <div id="content-div">
+            <div id="first-div" class="card golden-text bg-transparent" style="border: none !important;">
+                <div class="row no-gutters">
+                    <div class="col-auto p-2">
+                        <img src="assets/images/etou-lianjia.png" class="left-img">
+                        <img src="assets/images/top1.png" alt="" class="top1">
+                    </div>
+                    <div class="col">
+                        <div class="card-block px-2 p-2">
+                            <h5 class="card-title">《额头·脸颊》美白</h5>
+                            <p>含五胜肽肽，通过强化角质层从而增强肌肤保湿。含SPF与PA成分：早期皮肤老化的首要原因是因太阳的紫外线（UVA,
+                                UVB）引起。拥有广谱防晒霜与烟酰胺和甘油专属科技能高倍防晒，阻挡98%+UVB侵害。</p>
+                            <small>请点击,购买前先尝试产品功能！</small>
 
+                            <div class="row p-3">
+                                <a href="haojipu-1.html" class="btn btn-sm btn-dark">防晒产品尝试</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="second-div" class="card golden-text bg-transparent" style="border: none !important;">
+                <div class="row no-gutters">
+                    <div class="col-auto p-2">
+                        <img src="assets/images/yanbu-lianjia-zuichun.png" class="left-img">
+                        <img src="assets/images/top1.png" alt="" class="top1">
+                    </div>
+                    <div class="col">  
+
+
+                        <div class="card-block px-2 p-2">
+                            <h5 class="card-title">《眼部·脸颊·嘴角》抗细纹，皱纹</h5>
+                            <p>含复方维A醇+B3烟酰胺通过促进皮肤表面细胞再生，减少细纹和皱纹出现，同时有助于增强肌肤保湿屏障。</p>
+                            <small>请点击,购买前先尝试产品功能！</small>
+
+                            <div class="row p-3">
+                                <a href="haojipu-2.html" class="btn btn-sm btn-dark">含复方维A醇产品尝试</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="third-div" class="card golden-text bg-transparent" style="border: none !important;">
+                <div class="row no-gutters">
+                    <div class="col-auto p-2">
+                        <img src="assets/images/yanbu-lianjia-zuichun.png" class="left-img">
+                        <img src="assets/images/top1.png" alt="" class="top1">
+                    </div>
+                    <div class="col">
+                        <div class="card-block px-2 p-2">
+                            <h5 class="card-title">《脸颊·嘴角·眼部》紧致</h5>
+                            <p>含有烟酰胺+黄金酵母+肽肽焕现少女肌活力。高纯度烟酰胺修护肌肤屏障提升保湿力。双倍酵母，肌肤澎弹莹润。</p>
+                            <small>请点击,购买前先尝试产品功能！</small>
+
+                            <div class="row p-3">
+                                <a href="haojipu-3.html" class="btn btn-sm btn-dark">含烟酰胺产品尝试</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
+    
+    <script>
+        var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
+        var index = consumerData.jipu;
+
+        switch (index) {
+            case 1:
+                $('#first-div').find('.top1').show();
+                break;
+            case 2:
+                $('#second-div').find('.top1').show();
+                break;
+            case 3:
+                $('#third-div').find('.top1').show();
+                break;
+        }
+    </script>
 </body>
 
 </html>

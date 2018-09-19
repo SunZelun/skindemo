@@ -26,8 +26,18 @@
             color: #5c4025;
         }
 
+        .tick {
+            position: absolute;
+            left: 5%;
+            display: none;
+        }
+
         .hightlight {
-            border-bottom: 2px solid #5c4025;
+            opacity: 1 !important;
+        }
+
+        .option {
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -45,33 +55,43 @@
         <div class="row mt-3 p-3">
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/ximiannai.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/shuangfushui.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/jidiye.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images//jinghua.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/mianbujingcuiyou.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/yanshuangjinghua.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/mianshuang.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/mianmo.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/fangshaishuang.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
             <div class="col-6 p-2">
                 <img class="option" src="assets/images/yejianhufupin.png" alt="">
+                <img class="tick" src="assets/images/tick.png" alt="">
             </div>
         </div>
     </div>
@@ -84,6 +104,12 @@
     <script>
         $('.option').click(function () {
             $(this).toggleClass('hightlight');
+
+            $('.tick').hide();
+
+            $.each($('.hightlight'), function() {
+                $('.hightlight').parent().find('.tick').show();
+            });
         });
     </script>
 </body>
