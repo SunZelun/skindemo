@@ -4,7 +4,7 @@ var data = [
         "scores": {
             "yandai": 67,
             "yanjiao": 55,
-            "etou": 50,
+            "etou": 90,
             "zuijiao": 83,
             "lianjia": 71
         },
@@ -53,7 +53,7 @@ var data = [
         "scores": {
             "yandai": 30,
             "yanjiao": 72,
-            "etou": 60,
+            "etou": 90,
             "zuijiao": 52,
             "lianjia": 33
         },
@@ -245,7 +245,7 @@ var data = [
         "scores": {
             "yandai": 49,
             "yanjiao": 68,
-            "etou": 60,
+            "etou": 90,
             "zuijiao": 33,
             "lianjia": 53
         },
@@ -437,7 +437,7 @@ var data = [
         "scores": {
             "yandai": 39,
             "yanjiao": 70,
-            "etou": 80,
+            "etou": 90,
             "zuijiao": 25,
             "lianjia": 48
         },
