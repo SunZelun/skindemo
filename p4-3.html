@@ -142,6 +142,7 @@
             }*/
 
             var image = localStorage.getItem('image');
+            const age = url.searchParams.get('age') || 28;
             var yandai = 27;
             var zuijiao = 31;
             var lianjia = 29;
@@ -153,7 +154,7 @@
             }
 
             $('#best-zone-score').text("90% ");
-            $('#skin-age').text(29);
+            $('#skin-age').text(age);
 
             var yandaibar = new ProgressBar.Line("#yandai-bar", {
                 strokeWidth: 4,
