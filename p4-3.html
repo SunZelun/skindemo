@@ -141,16 +141,19 @@
                 return result;
             }*/
 
-            var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
-            var yandai = consumerData.ages.yandai;
-            var zuijiao = consumerData.ages.zuijiao;
-            var lianjia = consumerData.ages.lianjia;
-            var yanjiao = consumerData.ages.yanjiao;
-            var etou = consumerData.ages.etou;
+            var image = localStorage.getItem('image');
+            var yandai = 27;
+            var zuijiao = 31;
+            var lianjia = 29;
+            var yanjiao = 33;
+            var etou = 24;
+            
+            if (image) {
+                $('.circle-image').css('background-image', image);
+            }
 
-            $('.circle-image').css('background-image', 'url(assets/images/selfies/age/' + consumerData.consumerName + '.png)');
-            $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
-            $('#skin-age').text(consumerData.skinAge);
+            $('#best-zone-score').text("90% ");
+            $('#skin-age').text(29);
 
             var yandaibar = new ProgressBar.Line("#yandai-bar", {
                 strokeWidth: 4,

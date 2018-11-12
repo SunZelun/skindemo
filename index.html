@@ -181,7 +181,7 @@
             <div class="counter">
                 <p id="content">25年面部成像研究经验，50,000+肌肤数据库分析，为您提供精准的肌龄结果</p>
                 <br>
-                <h1>0%</h1>
+                <h1></h1>
                 <hr />
                 <br>
                 <p id="note">正在读取照片</p>
@@ -196,14 +196,19 @@
     var url_string = window.location.href
     var url = new URL(url_string);
     const type = url.searchParams.get('type') || 'fullface';
+    const age = url.searchParams.get('age') || 28;
+    const image = url.searchParams.get('image') || null;
 
+    alert(image);
     localStorage.setItem("type", type);
+    localStorage.setItem("age", age);
+    localStorage.setItem("image", image);
 
     $(document).ready(function () {
         var counter = 0;
         var c = 0;
         var i = setInterval(function () {
-            $(".counter h1").html(c + "%");
+            // $(".counter h1").html(c + "%");
             $(".counter hr").css("width", c + "%");
 
             if (c == 20) {
