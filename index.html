@@ -199,7 +199,6 @@
     const age = url.searchParams.get('age') || 28;
     const image = url.searchParams.get('image') || null;
 
-    alert(image);
     localStorage.setItem("type", type);
     localStorage.setItem("age", age);
     localStorage.setItem("image", image);
@@ -240,7 +239,7 @@
             counter++;
 
             if (c < 100) {
-                c++;
+                c += 1.5;
             }
 
             if (counter == 110) {

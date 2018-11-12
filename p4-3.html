@@ -142,13 +142,16 @@
             }*/
 
             var image = localStorage.getItem('image');
-            const age = url.searchParams.get('age') || 28;
+            var age = localStorage.getItem('age') || 28;
             var yandai = 27;
             var zuijiao = 31;
             var lianjia = 29;
             var yanjiao = 33;
             var etou = 24;
             
+            alert(image);
+            alert(age);
+
             if (image) {
                 $('.circle-image').css('background-image', "url('" + image + "')");
             }
