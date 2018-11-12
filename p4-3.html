@@ -154,7 +154,10 @@
             }
 
             $('#best-zone-score').text("90% ");
-            $('#skin-age').text(age);
+
+            if (age != "null" && age != null) {
+                $('#skin-age').text(age);
+            }
 
             var yandaibar = new ProgressBar.Line("#yandai-bar", {
                 strokeWidth: 4,
