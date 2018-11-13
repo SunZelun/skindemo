@@ -1,180 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Skin Analyzer</title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
     <style>
-        .bg-image {
-            background-image: url("assets/images/age_bg.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 80vw;
-            height: 80vw;
-        }
+      .bg-image {
+        background-image: url("assets/images/age_bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 80vw;
+        height: 80vw;
+      }
 
-        .center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-        }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
 
-        body {
-            background-color: #e9e6df;
-        }
+      body {
+        background-color: #e9e6df;
+      }
 
-        .golden-text {
-            color: #5c4025;
-        }
+      .golden-text {
+        color: #5c4025;
+      }
 
-        .circle-image {
-            background-image: url("assets/images/heatmap.jpg");
-            background-position: center;
-            background-size: cover;
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-        }
+      .circle-image {
+        background-image: url("assets/images/heatmap.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+      }
 
-        .tab {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+      .tab {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
 
-        .active-tab {
-            background-color: #ffffff69;
-            border-bottom: 2px solid #5c4025;
-        }
+      .active-tab {
+        background-color: #ffffff69;
+        border-bottom: 2px solid #5c4025;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <nav class="navbar fixed-top navbar-dark bg-dark" style="background-color: #1b1a1f !important;">
-        <a class="navbar-brand" href="p3.html"><img src="assets/images/back.png" alt="Back" style="vertical-align: sub !important;">返回</a>
+  <body>
+    <nav
+      class="navbar fixed-top navbar-dark bg-dark"
+      style="background-color: #1b1a1f !important;"
+    >
+      <a class="navbar-brand" href="p3.html"
+        ><img
+          src="assets/images/back.png"
+          alt="Back"
+          style="vertical-align: sub !important;"
+        />返回</a
+      >
     </nav>
     <div id="app" class="container" style="padding-top: 10vh;">
-        <div class="row">
-            <div class="offset-1"></div>
-            <div class="col-5 text-center active-tab tab" data-target="skin-age-div">
-                <span>
-                    <img src="assets/images/spa.png" alt="" width="70">
-                    <br>肌肤年龄
-                </span>
-            </div>
+      <div class="col-12 section" id="skin-age-div">
+        <div class="col-12 text-center"><h3>您的分析结果</h3></div>
+        <br />
 
-            <div class="col-5 text-center tab" data-target="report-div">
-                <span>
-                    <img src="assets/images/night.png" alt="" width="70">
-                    <br>习惯分析
-                </span>
+        <div class="col-12">
+          <div class="col-12"><div class="circle-image mx-auto"></div></div>
+              <h5 class="center text-center golden-text">肌肤年龄<span id="age-label"></span></h5>
+
+          <div class="col-12">
+            <!-- <div class="col-12 text-center mb-2">
+              <span
+                ><a href="detail.html?method=2" style="color:black;"
+                  ><small>点击具体区域可查看详细护肤方案</small></a
+                ></span
+              >
+            </div> -->
+            <br />
+            <!-- <div class="col-12 text-center mb-2 p-0">
+              <h5>
+                <span id="best-zone-score"></span>>> 最佳部位：<span
+                  id="best-zone"
+                ></span>
+                <<
+              </h5>
+            </div> -->
+            <div class="col-12 text-center">
+              <span
+                >打败全国<b
+                  style="color: #DAC993; font-size: 30px;"
+                  id="rank-number"
+                ></b
+                >同龄人*</span
+              >
             </div>
+          </div>
         </div>
 
-        <div class="col-12 mt-5 section" id="skin-age-div">
-            <div class="col-12 text-center">
-                <h3>您的分析结果</h3>
-            </div>
-            <br>
+        <div class="col-12 mt-5">
+          <canvas id="canvas" style="height: 300px; width: 100%;"></canvas>
+        </div>
 
+        <div class="col-12 mt-5 section" id="report-div">
+          <div class="col-12 text-center">
+            <h3>无惧年龄好习惯分析</h3>
+            <h6>早期肌肤衰老与生活点滴息息相关</h6>
+            <h6>结合自身实际情况</h6>
+          </div>
+          <br />
+
+          <div class="col-12 p-0">
             <div class="col-12">
-                <div class="col-12 bg-image">
-                    <h5 class="center text-center golden-text" style="top: 35%;">肌肤年龄</h5>
-                    <h1 class="center text-center golden-text" id="age-label"></h1>
-                </div>
-
-                <div class="col-12">
-                    <div class="col-12 text-center mb-2">
-                        <span><a href="detail.html?method=2" style="color:black;"><small>点击具体区域可查看详细护肤方案</small></a></span>
-                    </div>
-                    <br>
-                    <div class="col-12 text-center mb-2 p-0">
-                        <h5><span id="best-zone-score"></span>>> 最佳部位：<span id="best-zone"></span> <<</h5>
-                    </div>
-                    <br>
-                    <div class="col-12 text-center">
-                        <span>打败全国<b style="color: #DAC993; font-size: 30px;" id="rank-number"></b>同龄人*</span>
-                    </div>
-                </div>
-            </div>
-
-                <div class="col-12 mt-5">
-                    <canvas id="canvas" style="height: 300px; width: 100%;"></canvas>
-
-                    <div class="row mt-2 mb-2">
-                        <p><small><em>*指Olay肌肤数据库中的同龄人</em></small></p>
-                    </div>
-
-                    <div class="col-12 text-center mb-3">
-                        <a href="p3.html" class="btn btn-outline-dark col-12">返回</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 mt-5 section" id="report-div" style="display: none;">
+              <div class="col-12 text-center mb-2">
+                <span
+                  ><b style="color: #DAC993; font-size: 30px;">40%</b
+                  ><a href="detail.html?method=2" style="color:black;"
+                    >肌肤健康指数</a
+                  ></span
+                >
+              </div>
+              <br />
+              <div class="col-12 text-center mb-2 p-0">
                 <div class="col-12 text-center">
-                    <h3>无惧年龄好习惯分析</h3>
-                    <h6>早期肌肤衰老与生活点滴息息相关</h6>
-                    <h6>结合自身实际情况</h6>
+                  <span
+                    >打败全国<b style="color: #DAC993; font-size: 30px;">40%</b
+                    >同龄人*</span
+                  >
                 </div>
-                <br>
-
-                <div class="col-12 p-0">
-                    <div class="col-12">
-                        <div class="circle-image mx-auto"></div>
-                    </div>
-
-                    <br>
-
-                    <div class="col-12">
-                        <div class="col-12 text-center mb-2">
-                            <span><b style="color: #DAC993; font-size: 30px;">40%</b><a href="detail.html?method=2" style="color:black;">肌肤健康指数</a></span>
-                        </div>
-                        <br>
-                        <div class="col-12 text-center mb-2 p-0">
-                            <div class="col-12 text-center">
-                                <span>打败全国<b style="color: #DAC993; font-size: 30px;">40%</b>同龄人*</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3 p-0">
-                        <div class="col-12 text-left mb-2 p-0">
-                            <img src="assets/images/sleeping.png" alt="" width="50">
-                            &emsp;平均睡眠质量打败<b style="color: #DAC993; font-size: 30px;">40%</b>同龄人*
-                        </div>
-
-                        <div class="col-12 text-left mb-2 p-0">
-                            <img src="assets/images/dinner.png" alt="" width="50">
-                            &emsp;平均饮水打败<b style="color: #DAC993; font-size: 30px;">40%</b>同龄人*
-                        </div>
-
-                        <div class="col-12 text-left mb-2 p-0">
-                            <img src="assets/images/calendar.png" alt="" width="50">
-                            &emsp;经期正常
-                        </div>
-
-                        <div class="col-12 text-right mt-4 mb-2">
-                            <p><small><em>*指Olay肌肤数据库中的同龄人</em></small></p>
-                        </div>
-
-                        <div class="col-12 text-center mb-3">
-                            <a href="p3.html" class="btn btn-outline-dark col-12">返回</a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
 
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/chart.min.js"></script>
-            <script>
-                /*function generateResult(type) {
+            <div class="col-12 mt-3 p-0">
+              <div class="col-12 text-left mb-2 p-0">
+                <img src="assets/images/sleeping.png" alt="" width="50" />
+                &emsp;平均睡眠质量打败<b
+                  style="color: #DAC993; font-size: 30px;"
+                  >40%</b
+                >同龄人*
+              </div>
+
+              <div class="col-12 text-left mb-2 p-0">
+                <img src="assets/images/dinner.png" alt="" width="50" />
+                &emsp;平均饮水打败<b style="color: #DAC993; font-size: 30px;"
+                  >40%</b
+                >同龄人*
+              </div>
+
+              <div class="col-12 text-left mb-2 p-0">
+                <img src="assets/images/calendar.png" alt="" width="50" />
+                &emsp;经期正常
+              </div>
+
+              <div class="col-12 text-right mt-4 mb-2">
+                <p>
+                  <small><em>*指Olay肌肤数据库中的同龄人</em></small>
+                </p>
+              </div>
+
+              <div class="col-12 text-center mb-3">
+                <a href="haojipu.html" class="btn btn-outline-dark col-12">好《肌谱》</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script>
+      /*function generateResult(type) {
                     var max = 100;
                     var min = 1;
         
@@ -200,92 +203,96 @@
                     return result;
                 }*/
 
-                var consumerData = JSON.parse(localStorage.getItem("consumer_data"));
-                var labels = {
-                    yandai: "眼袋",
-                    yanjiao: "眼角",
-                    etou: "额头",
-                    zuijiao: "嘴角",
-                    lianjia: "脸颊"
+      var image = localStorage.getItem("image");
+      var age = localStorage.getItem("age") || 28;
+      var yandai = 27;
+      var zuijiao = 31;
+      var lianjia = 29;
+      var yanjiao = 33;
+      var etou = 24;
+
+      var labels = {
+        yandai: "眼袋",
+        yanjiao: "眼角",
+        etou: "额头",
+        zuijiao: "嘴角",
+        lianjia: "脸颊"
+      };
+
+      $("#age-label").text(age + "岁");
+      $(".circle-image").css("background-image", "url(" + image + ")");
+      $("#best-zone-score").text("90% ");
+      $("#best-zone").text("额头");
+      $("#rank-number").text("15%");
+
+      var config = {
+        type: "radar",
+        data: {
+          labels: [
+            "眼袋\n" + yandai + "%",
+            "嘴角\n" + zuijiao + "%",
+            "脸颊\n" + lianjia + "%",
+            "眼角\n" + yanjiao + "%",
+            "额头\n" + etou + "%"
+          ],
+          datasets: [
+            {
+              backgroundColor: "#ffffff00",
+              borderColor: "#000000",
+              pointBackgroundColor: "#000000",
+              pointBorderWidth: 5,
+              pointBorderColor: "#000000",
+              data: [yandai, zuijiao, lianjia, yanjiao, etou]
+            }
+          ]
+        },
+        options: {
+          legend: {
+            position: "top",
+            display: false
+          },
+          scale: {
+            ticks: {
+              display: false,
+              beginAtZero: true,
+              min: 0,
+              max: 100
+            },
+            pointLabels: {
+              fontColor: "#000000",
+              fontSize: 14
+            }
+          }
+        },
+        plugins: [
+          {
+            beforeInit: function(chart) {
+              chart.data.labels.forEach(function(e, i, a) {
+                if (/\n/.test(e)) {
+                  a[i] = e.split(/\n/);
                 }
-                
-                var yandai = consumerData.scores.yandai;
-                var zuijiao = consumerData.scores.zuijiao;
-                var lianjia = consumerData.scores.lianjia;
-                var yanjiao = consumerData.scores.yanjiao;
-                var etou = consumerData.scores.etou;
+              });
+            }
+          }
+        ]
+      };
 
-                $('#age-label').text(consumerData.skinAge + "岁");
-                $('.circle-image').css('background-image', 'url(assets/images/selfies/heatmap/' + consumerData.consumerName + '.png)');
-                $('#best-zone-score').text(consumerData.scores[consumerData.best] + "% ");
-                $('#best-zone').text(labels[consumerData.best]);
-                $('#rank-number').text(consumerData.rank + "%");
+      $(document).ready(function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
 
-                var config = {
-                    type: 'radar',
-                    data: {
-                        labels: ['眼袋\n' + yandai + "%", '嘴角\n' + zuijiao + "%", '脸颊\n' + lianjia + "%", '眼角\n' + yanjiao + "%", '额头\n' + etou + "%"],
-                        datasets: [{
-                            backgroundColor: "#ffffff00",
-                            borderColor: "#000000",
-                            pointBackgroundColor: "#000000",
-                            pointBorderWidth: 5,
-                            pointBorderColor: "#000000",
-                            data: [
-                                yandai,
-                                zuijiao,
-                                lianjia,
-                                yanjiao,
-                                etou
-                            ]
-                        }],
-                    },
-                    options: {
-                        legend: {
-                            position: 'top',
-                            display: false
-                        },
-                        scale: {
-                            ticks: {
-                                display: false,
-                                beginAtZero: true,
-                                min: 0,
-                                max: 100,
-                            },
-                            pointLabels: {
-                                fontColor: "#000000",
-                                fontSize: 14
-                            }
-                        }
-                    },
-                    plugins: [{
-                        beforeInit: function (chart) {
-                            chart.data.labels.forEach(function (e, i, a) {
-                                if (/\n/.test(e)) {
-                                    a[i] = e.split(/\n/)
-                                }
-                            })
-                        }
-                    }]
-                };
+        $("#canvas").click(function() {
+          location.href = "detail.html?method=2";
+        });
 
-                $(document).ready(function () {
-                    window.myRadar = new Chart(document.getElementById('canvas'), config);
+        $(".tab").click(function() {
+          $(".tab").removeClass("active-tab");
+          $(this).addClass("active-tab");
 
-                    $('#canvas').click(function () {
-                        location.href = "detail.html?method=2";
-                    });
-
-                    $('.tab').click(function () {
-                        $('.tab').removeClass('active-tab');
-                        $(this).addClass('active-tab');
-
-                        var target = $(this).attr('data-target');
-                        $('.section').hide();
-                        $('#' + target).show();
-                    });
-                });
-            </script>
-</body>
-
+          var target = $(this).attr("data-target");
+          $(".section").hide();
+          $("#" + target).show();
+        });
+      });
+    </script>
+  </body>
 </html>
