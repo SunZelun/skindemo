@@ -191,6 +191,7 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="datasource.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script>
     var url_string = window.location.href
@@ -202,6 +203,13 @@
     localStorage.setItem("type", type);
     localStorage.setItem("age", age);
     localStorage.setItem("image", image);
+
+    const name = '张晓蓉';
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].consumerName == name) {
+            localStorage.setItem("consumer_data", JSON.stringify(data[i]));
+        }
+    }
 
     $(document).ready(function () {
         var counter = 0;
